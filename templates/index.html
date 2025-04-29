@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CAP OR NO CAP</title>
+    <style>
+        body {
+            background-color: #fffef8;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 30px;
+        }
+        .box {
+            border: 4px solid #db4b39;
+            border-radius: 20px;
+            padding: 30px 50px;
+            font-size: 36px;
+            font-weight: bold;
+            color: #db4b39;
+            transition: all 0.3s;
+        }
+        .active {
+            background-color: #db4b39;
+            color: white;
+        }
+        textarea {
+            width: 600px;
+            height: 100px;
+            border: 4px solid #db4b39;
+            border-radius: 20px;
+            padding: 10px;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .button {
+            background-color: #db4b39;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 25px;
+            padding: 10px 30px;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CAP OR NO CAP</h1>
+    <form action="/predict" method="POST">
+        <div class="container">
+            <div class="box {% if prediction == 'CAP' %}active{% endif %}">CAP</div>
+            <div class="box {% if prediction == 'NO CAP' %}active{% endif %}">NO CAP</div>
+        </div>
+        <textarea name="text" placeholder="ENTER YOUR TEXT HERE..."></textarea><br>
+        <button type="submit" class="button">PREDICT</button>
+    </form>
+</body>
+</html>
